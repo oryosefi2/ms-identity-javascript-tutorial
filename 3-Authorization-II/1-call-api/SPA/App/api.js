@@ -1,27 +1,23 @@
 function callApi(endpoint, token) {
+  var xhr = new XMLHttpRequest();
 
-    const headers = new Headers();
-    const bearer = `Bearer ${token}`;
-  
-    headers.append("Authorization", bearer);
-  
-    const options = {
-        method: "GET",
-        headers: headers
-      };
-  
-    logMessage('Calling Web API...');
-    
-    fetch(endpoint, options)
-      .then(response => response.json())
-      .then(response => {
+  // Setup our listener to process completed requests
+  xhr.onreadystatechange = function () {
 
-        if (response) {
-          logMessage('Web API responded: Hello ' + response['name'] + '!');
-        }
-        
-        return response;
-      }).catch(error => {
-        console.error(error);
-      });
-  }
+    // Only run if the request is complete
+    if (xhr.readyState !== 4) return;
+
+    // Process our return data
+    if (xhr.status >= 200 && xhr.status < 300) {
+
+      // What do when the request is successful
+      console.log(JSON.parse(xhr.responseText));
+      logMessage('Web API responded: Hello ' + JSON.parse(xhr.responseText)['name'] + '!');
+    }
+  };
+
+  // Send the request using bearer token
+  xhr.open('GET', endpoint);
+  xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+  xhr.send();
+}
