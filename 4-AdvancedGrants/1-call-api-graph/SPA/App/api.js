@@ -26,7 +26,7 @@ function callApi(endpoint, token) {
 				if (response['error_codes'].includes(65001)) {
 
 					// calls the MSAL.js acquireToken* API
-					passTokenToApi();
+					logMessage(response['error_description'])
 				}
 			} else {
 				// if no errors, display user name

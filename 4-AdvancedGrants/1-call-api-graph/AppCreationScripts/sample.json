@@ -43,11 +43,6 @@
             "Resource": "service",
             "DelegatedPermissions": [ "access_as_user" ]
           }
-        ],
-        "ManualSteps": [
-          {
-            "Comment": "Navigate to the Manifest page, find the 'replyUrlsWithType' section and change the type of redirect URI to 'Spa'"
-          }
         ]
       }
     ],
@@ -67,11 +62,11 @@
           },
           {
             "key": "Enter_the_Redirect_Uri_Here",
-            "value": ".ReplyUrls"
+            "value": "spa.Spa.RedirectUris"
           },
           {
             "key": "Enter_the_Web_Api_Uri_Here",
-            "value": "service.HomePage"
+            "value": "service.Web.HomePageUrl"
           },
           {
             "key": "Enter_the_Web_Api_Scope_Here",

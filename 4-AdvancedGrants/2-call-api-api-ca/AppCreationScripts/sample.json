@@ -54,11 +54,6 @@
             "Resource": "middletierAPI",
             "DelegatedPermissions": [ "access_middletier_api_as_user" ]
           }
-        ],
-        "ManualSteps": [
-          {
-            "Comment": "Navigate to the Manifest page, find the 'replyUrlsWithType' section and change the type of redirect URI to 'Spa'"
-          }
         ]
       }
     ],
@@ -118,8 +113,8 @@
             "value": ".AppId"
           },
           {
-            "key": "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
-            "value": "\"https://login.microsoftonline.com/\"+$tenantId"
+            "key": "Enter_the_Tenant_Info_Here",
+            "value": "$tenantId"
           },
           {
             "key": "Enter_the_Web_Api_Scope_Here",
